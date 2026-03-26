@@ -12,14 +12,52 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://coreyeudell.com";
+
 export const metadata: Metadata = {
-  title: "Corey Eudell",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Corey Eudell",
+    template: "%s | Corey Eudell",
+  },
   description:
-    "Engineer. Builder of things that don't need to exist.",
+    "Engineer. Builder of things that don't need to exist. Software, systems, boats.",
+  keywords: [
+    "software engineer",
+    "full stack developer",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "portfolio",
+  ],
+  authors: [{ name: "Corey Eudell" }],
+  creator: "Corey Eudell",
   openGraph: {
     title: "Corey Eudell",
-    description: "Engineer. Builder of things that don't need to exist.",
+    description:
+      "Engineer. Builder of things that don't need to exist.",
+    url: siteUrl,
+    siteName: "Corey Eudell",
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Corey Eudell",
+    description:
+      "Engineer. Builder of things that don't need to exist.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
