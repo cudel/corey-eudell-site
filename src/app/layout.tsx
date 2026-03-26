@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Corey Eudell",
   },
   description:
-    "Engineer. Builder of things that don't need to exist. Software, systems, boats.",
+    "Engineer. Builder of things that don't need to exist. Software, systems, sailboats.",
   keywords: [
     "software engineer",
     "full stack developer",

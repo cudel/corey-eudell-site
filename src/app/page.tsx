@@ -14,7 +14,7 @@ function HeroSection() {
       </h1>
       <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-lg leading-relaxed">
         I build things because I want to, not because they need to exist.
-        Software, systems, boats&mdash;same impulse, different materials.
+        Software, systems, sailboats&mdash;same impulse, different materials.
       </p>
       <div className="mt-10 flex items-center gap-3">
         <span className="inline-block w-8 h-px bg-accent-warm" />
