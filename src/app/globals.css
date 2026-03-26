@@ -1,30 +1,81 @@
 @import "tailwindcss";
 
+/*
+ * Design Tokens — Corey Eudell Personal Site
+ *
+ * Palette: Near-black background, warm grays for text hierarchy,
+ * single warm accent (amber/ochre) for interactive elements.
+ * The accent is intentionally muted — it should feel like a
+ * campfire in a dark room, not a neon sign.
+ *
+ * Type: Geist Sans for body, Geist Mono for labels/tags/code.
+ * Scale follows a 1.25 ratio (Major Third).
+ *
+ * Spacing: 4px base unit. Sections use generous vertical rhythm.
+ */
+
 :root {
-  --background: #0a0a0a;
-  --foreground: #e5e5e5;
-  --accent: #a3a3a3;
-  --muted: #525252;
-  --border: #262626;
+  /* Background layers (darkest to lightest) */
+  --bg-base: #09090b;
+  --bg-raised: #0f0f12;
+  --bg-hover: #18181b;
+
+  /* Text hierarchy */
+  --text-primary: #e4e4e7;
+  --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
+
+  /* Accent — warm ochre, used sparingly */
+  --accent-warm: #d97706;
+  --accent-warm-muted: #92400e;
+
+  /* Borders */
+  --border-subtle: #1e1e22;
+  --border-default: #27272a;
+  --border-hover: #3f3f46;
+
+  /* Selection */
+  --selection-bg: #292524;
+  --selection-text: #fafaf9;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
+  /* Colors */
+  --color-bg-base: var(--bg-base);
+  --color-bg-raised: var(--bg-raised);
+  --color-bg-hover: var(--bg-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-warm: var(--accent-warm);
+  --color-accent-warm-muted: var(--accent-warm-muted);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-hover: var(--border-hover);
+
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg-base);
+  color: var(--text-primary);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
 ::selection {
-  background: #404040;
-  color: #fafafa;
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-warm);
+  outline-offset: 2px;
 }
