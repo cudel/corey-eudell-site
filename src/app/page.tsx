@@ -142,7 +142,7 @@ function Footer() {
         </p>
         <div className="flex gap-8">
           <a
-            href="https://github.com/coreyeudell"
+            href="https://github.com/cudel"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-xs text-text-muted hover:text-accent-warm transition-colors duration-200"

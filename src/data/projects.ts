@@ -28,7 +28,7 @@ export const projects: Project[] = [
     description:
       "You're looking at it. Built to test the framework that builds things. The snake eating its own tail.",
     tags: ["Next.js", "TypeScript", "Tailwind"],
-    github: "https://github.com/coreyeudell/corey-eudell-site",
+    github: "https://github.com/cudel/corey-eudell-site",
     featured: true,
   },
 ];
