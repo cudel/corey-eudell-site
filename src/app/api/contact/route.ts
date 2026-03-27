@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+const NOTIFY_EMAIL = process.env.CONTACT_NOTIFY_EMAIL ?? "";
 
 export async function POST(req: NextRequest) {
   try {
@@ -39,19 +43,30 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const submission = {
-      name: name.trim(),
-      email: email.trim().toLowerCase(),
-      message: message.trim(),
-      createdAt: new Date().toISOString(),
-    };
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim().toLowerCase();
+    const trimmedMessage = message.trim();
 
-    try {
-      const { db } = await import("@/lib/db");
-      const { contactSubmissions } = await import("@/lib/db/schema");
-      await db.insert(contactSubmissions).values(submission);
-    } catch {
-      console.log("[contact] DB unavailable, submission logged:", JSON.stringify(submission));
+    const { error: sendError } = await resend.emails.send({
+      from: "coreyeudell.com <onboarding@resend.dev>",
+      to: NOTIFY_EMAIL,
+      replyTo: trimmedEmail,
+      subject: `Contact form: ${trimmedName}`,
+      text: [
+        `Name: ${trimmedName}`,
+        `Email: ${trimmedEmail}`,
+        ``,
+        `Message:`,
+        trimmedMessage,
+      ].join("\n"),
+    });
+
+    if (sendError) {
+      console.error("[contact] Resend error:", sendError);
+      return NextResponse.json(
+        { error: "Failed to send message. Please try again." },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ ok: true }, { status: 201 });
