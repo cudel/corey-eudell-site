@@ -25,7 +25,7 @@ function SectionHeader({
 
 function HeroSection() {
   return (
-    <section className="relative flex flex-col justify-end min-h-svh px-6 pb-20 sm:px-12 md:px-24 lg:px-32 overflow-hidden">
+    <section className="relative flex flex-col justify-end min-h-svh pt-20 px-6 pb-20 sm:px-12 md:px-24 lg:px-32 overflow-hidden">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
