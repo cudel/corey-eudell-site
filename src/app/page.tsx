@@ -1,6 +1,7 @@
 import { projects, type Project } from "@/data/projects";
 import { ContactForm } from "@/components/ContactForm";
 import { Navigation } from "@/components/Navigation";
+import { ColorPalette } from "@/components/ColorPalette";
 
 function SectionHeader({
   number,
@@ -119,12 +120,12 @@ function ProjectsSection() {
 }
 
 const skills = [
-  { category: "Languages", items: ["TypeScript", "Python", "Java", "SQL"] },
-  { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
-  { category: "Backend", items: ["Node.js", "Express", "REST APIs"] },
-  { category: "Data", items: ["PostgreSQL", "SQLite", "Drizzle ORM"] },
-  { category: "Infra", items: ["Docker", "Git", "Linux", "CI/CD"] },
-  { category: "Other", items: ["Agent Systems", "MCP", "Sailing"] },
+  { category: "Languages", items: ["Java", "TypeScript", "SQL", "Python", "JavaScript"] },
+  { category: "Frontend", items: ["React", "Angular", "Next.js", "Tailwind CSS"] },
+  { category: "Backend", items: ["Spring Boot", "Java EE", "Node.js", "REST", "Kafka"] },
+  { category: "Data", items: ["PostgreSQL", "Oracle", "MongoDB", "Elasticsearch", "Hibernate"] },
+  { category: "Infra", items: ["Docker", "OpenShift", "Jenkins", "Linux", "Git", "CI/CD"] },
+  { category: "Other", items: ["Agent Systems", "Microservices", "Agile/Scrum", "Jazz", "Sailing"] },
 ];
 
 function AboutSection() {
@@ -137,15 +138,15 @@ function AboutSection() {
       <div className="grid gap-16 lg:grid-cols-[1fr_1px_1fr] lg:gap-12">
         <div className="space-y-8">
           <p className="text-text-secondary text-base sm:text-lg leading-relaxed">
-            Software engineer who lives on a sailboat. I spend my time building
-            agent frameworks, writing TypeScript, and occasionally sailing
-            offshore. The boat and the code have more in common than you&apos;d
-            think&mdash;both are systems that need to work when nobody&apos;s
+            Fifteen years of shipping enterprise software&mdash;defense systems,
+            health platforms, microservices at scale. Now I build agent
+            frameworks and live on a sailboat. The systems have more in common
+            than you&apos;d think&mdash;both need to work when nobody&apos;s
             watching.
           </p>
           <p className="text-text-secondary text-base sm:text-lg leading-relaxed">
             I don&apos;t have a grand thesis about why any of this matters. Camus
-            had Sisyphus; I have deploy scripts.{" "}
+            had Sisyphus; I have a sailboat and a backlog.{" "}
             <span className="text-accent-warm">
               One must imagine the developer happy.
             </span>
@@ -186,7 +187,15 @@ function ContactSection() {
     >
       <SectionHeader number="03" label="Contact" />
       <p className="text-text-secondary text-base sm:text-lg mb-10 max-w-md leading-relaxed">
-        Want to talk about systems, sailing, or the absurdity of it all?
+        Want to talk about systems, sailing, or the{" "}
+        <a
+          href="/parenthetical"
+          className="text-text-secondary hover:text-text-secondary transition-none cursor-text"
+          tabIndex={-1}
+        >
+          absurdity
+        </a>{" "}
+        of it all?
       </p>
       <ContactForm />
     </section>
@@ -251,6 +260,8 @@ function Footer() {
             </a>
           </div>
         </div>
+
+        <ColorPalette />
 
         <p className="font-mono text-[10px] text-text-muted/40 text-center tracking-wider">
           The rock is heavy. Push it anyway.
