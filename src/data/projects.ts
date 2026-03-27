@@ -12,7 +12,7 @@ export const projects: Project[] = [
     description:
       "Multi-agent orchestration framework. Agents talk through markdown inboxes. A daemon watches, dispatches, and pretends everything is fine.",
     tags: ["Python", "TypeScript", "Agents"],
-    github: "https://github.com/cudel/jeeves-core",
+    github: "https://github.com/cudel",
     featured: true,
   },
   {
@@ -20,7 +20,7 @@ export const projects: Project[] = [
     description:
       "Sailing logbook for offshore passages. Because paper gets wet and GPS tracks don't capture the 3am watch.",
     tags: ["Java", "React Native", "SQLite"],
-    github: "https://github.com/cudel/blue-water-log",
+    github: "https://github.com/cudel",
     featured: true,
   },
   {

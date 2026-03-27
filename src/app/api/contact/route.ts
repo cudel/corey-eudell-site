@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
-import { contactSubmissions } from "@/lib/db/schema";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -41,11 +39,20 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    await db.insert(contactSubmissions).values({
+    const submission = {
       name: name.trim(),
       email: email.trim().toLowerCase(),
       message: message.trim(),
-    });
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      const { db } = await import("@/lib/db");
+      const { contactSubmissions } = await import("@/lib/db/schema");
+      await db.insert(contactSubmissions).values(submission);
+    } catch {
+      console.log("[contact] DB unavailable, submission logged:", JSON.stringify(submission));
+    }
 
     return NextResponse.json({ ok: true }, { status: 201 });
   } catch {
